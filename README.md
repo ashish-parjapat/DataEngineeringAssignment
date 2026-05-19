@@ -177,7 +177,7 @@ Environment variables are stored in `.env`
 ```env
 POSTGRES_DB=market_data_db
 POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres
+POSTGRES_PASSWORD=ashish
 POSTGRES_PORT=5432
 ```
 
