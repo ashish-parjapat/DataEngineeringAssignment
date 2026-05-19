@@ -1,7 +1,6 @@
 import requests
 
-
-API_URL = "http://127.0.0.1:8000/v1/market-data"
+API_URL = "http://api:8000/v1/market-data"
 
 
 def extract_market_data():

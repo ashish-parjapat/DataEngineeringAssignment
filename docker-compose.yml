@@ -1,0 +1,61 @@
+services:
+
+  api:
+
+    build:
+      context: ./api
+
+    container_name: market_api
+
+    ports:
+      - "8000:8000"
+
+    networks:
+      - market_network
+
+
+  db:
+
+    image: postgres:17
+
+    container_name: postgres_db
+
+    env_file:
+      - .env
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    networks:
+      - market_network
+
+
+  etl:
+
+    build:
+      context: ./etl
+
+    container_name: market_etl
+
+    depends_on:
+      - api
+      - db
+
+    env_file:
+      - .env
+
+    networks:
+      - market_network
+
+
+volumes:
+
+  postgres_data:
+
+
+networks:
+
+  market_network:
